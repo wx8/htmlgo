@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+  <head>
+  <title>
+    HTML lang没想象中的那么简单 - 歪酷博客（Y.cool）
+    
+  </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="前言">
+  <meta property="author" content="熊の猫">
+  <link rel="dns-prefetch" href="//tcb-api.tencentcloudapi.com">
+  <link rel="dns-prefetch" href="//cravatar.cn">
+  <link rel="dns-prefetch" href="//cdn.staticfile.org">
+  <link rel="dns-prefetch" href="//y.com.nu">
+  <link rel="stylesheet" href="/main.min.css">
+  <link rel="stylesheet" href="//cdn.staticfile.org/font-awesome/6.2.1/css/all.min.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="//y.com.nu/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="//y.com.nu/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="//y.com.nu/icons/apple-touch-icon.png">
+  <link rel="manifest" href="//y.com.nu/icons/site.webmanifest">
+  <link rel="alternate" type="application/atom+xml" title="Y.cool's RSS" href="//y.cool/feed.xml">
+  <link type="application/atom+xml" rel="alternate" href="https://y.cool/feed.xml" title="歪酷博客" />
+  <meta http-equiv="refresh" content="0";url=https://cathay.blog/post/20201115.html" />
+</head>
+
+
+  <body>
+
+    <header class="nav">
+  <div class="nav-container">
+    <a title="歪酷博客-Y.cool" href="/">
+		<div class="logo">🆈.cool+⁺</div>
+	</a>
+    <h1 class="hidden">歪酷博客-Y.cool</h1>
+	<div class="desktop">
+		<ul>
+			<li><a href="/archive" style="color:#61bfad">归档</a></li>
+			<li><a href="/about" style="color:#fd8b8b">作者</a></li>
+			<li><a href="/friend" style="color:#ffab00">朋友</a></li>
+			<li><a href="/search"><svg data-icon="search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="vertical-align:middle;color:#99ccff;width:1rem;height:1rem"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></a></li>
+		</ul>
+	</div>
+	<div class="dropdown">
+		<button class="dropbtn">☰</button>
+		<div class="dropdown-content">
+			<a href="/archive">归档</a>
+			<a href="/about">作者</a>
+			<a href="/friend">朋友</a>
+			<a href="/search">检索</a>
+		</div>
+	</div>
+  </div>
+</header>
+
+
+    <main class="homehead">
+	<div class="post">
+		<h2 class="post-title">HTML lang没想象中的那么简单</h2>
+		<div class="post-info">
+			
+			<time>熊の猫 写于 2020年11月15日</time><div class="hidden">Y.cool - 歪酷博客</div>
+			
+		</div>
+		<h3 id="前言">前言</h3>
+
+<p>今天心血来潮，想试试看自己的博客页面是否符合W3C标准。结果这一检测，上来就提示我说——<code class="highlighter-rouge"><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"zh-CN"</span><span class="nt">&gt;</span></code>不符合标准。
+<strong><em>What????</em></strong>
+大家给 <code class="highlighter-rouge"><span class="nt">&lt;html&gt;</span></code> 设置 <code class="highlighter-rouge">lang</code> 属性的时候，不都是写<code class="highlighter-rouge"><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"zh-CN"</span><span class="nt">&gt;</span></code>，或者干脆直接简写成 <code class="highlighter-rouge"><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"zh"</span><span class="nt">&gt;</span></code> 吗？这咋还不符合标准规范了？但仔细想一想，好像是有些问题。</p>
+
+<p>首先，<code class="highlighter-rouge">zh</code> 是什么鬼？拼音？明明是国际标准怎么会用中文拼音？其次，<code class="highlighter-rouge">CN</code> 为什么要大写？第三，<code class="highlighter-rouge">zh-CN</code>表示中国中文，<code class="highlighter-rouge">zh-SG</code>表示新加坡中文，但这两个国家都使用简体中文，貌似没什么区别呀？第四，如果页面上显示的是用中文是一个粤语用词，如<code class="highlighter-rouge">佢系一个须刨嚟嘅</code>（它是一个刮胡刀），那屏幕阅读器是用普通话朗读还是用粤语朗读呢？</p>
+
+<p>带着这些问题，以及如何才能符合W3C标准规范，我决定开始了解下语言标记是如何定义的。</p>
+
+<h3 id="过程">过程</h3>
+
+<p>先从<code class="highlighter-rouge">lang</code>属性的定义开始。参考MDN上关于 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/lang" title="lang" target="_blank">lang</a> 上的解释可知，它是由 <a href="https://zh.wikipedia.org/wiki/%E4%BA%92%E8%81%94%E7%BD%91%E5%B7%A5%E7%A8%8B%E4%BB%BB%E5%8A%A1%E7%BB%84" title="IETF" target="_blank">IETF</a> 的 <a href="https://www.ietf.org/rfc/bcp/bcp47.txt" title="BCP47">BCP47</a> 规范来定义的。根据 <a href="https://www.ietf.org/rfc/bcp/bcp47.txt" title="BCP47" target="_blank">BCP47</a> 规范的描述，它是 <a href="https://tools.ietf.org/rfc/rfc5646.txt" title="RFC5646">RFC5646</a> 与 <a href="https://tools.ietf.org/rfc/rfc4647.txt" title="RFC4647" target="_blank">RFC4647</a> 这两个规范的最佳实践合集，用于取代 <a href="https://tools.ietf.org/rfc/rfc4646.txt" title="RFC4646" target="_blank">RFC4646</a>、<a href="https://tools.ietf.org/rfc/rfc3066.txt" title="RFC3066" target="_blank">RFC3066</a>、<a href="https://tools.ietf.org/rfc/rfc1766.txt" title="RFC1766" target="_blank">RFC1766</a> 这三个旧的语言标签规范。最新的规范定义了语言标签的描述规则如下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language  -  extlang       -  script  -  region  -  variant  -  extension  -  privateuse
+主语言     -  扩展语言(方言)  -  书写文字  -  区域    -  变体      -  扩展       -  私有
+</code></pre></div></div>
+
+<p>由子标签按顺序通过连字号(-)连接起来组成一个完整的语言标签，各子标签的格式遵循以下标准：</p>
+
+<ul>
+  <li>language：<a href="http://www.mathguide.de/info/tools/languagecode.html" title="ISO639-1" target="_blank">ISO639-1</a> (2002)的2字母语言代码，<a href="https://www.loc.gov/standards/iso639-2/php/code_list.php" title="ISO639-2" target="_blank">ISO639-2</a> (1998) 或 <a href="https://iso639-3.sil.org/code_tables/639/data" title="ISO639-3">ISO639-3</a> (2007) 或 <a href="https://www.loc.gov/standards/iso639-5/id.php" title="ISO639-5" target="_blank">ISO639-5</a> (2008)的3字母语言代码</li>
+  <li>extlang：<a href="https://iso639-3.sil.org/code_tables/639/data" title="ISO639-3" target="_blank">ISO639-3</a> 每个由3字母组成</li>
+  <li>script：<a href="https://www.unicode.org/iso15924/iso15924-codes.html" title="ISO15924" target="_blank">ISO15924</a> 的4字母书写文字代码</li>
+  <li>region：<a href="https://zh.wikipedia.org/wiki/ISO_3166-1%E4%BA%8C%E4%BD%8D%E5%AD%97%E6%AF%8D%E4%BB%A3%E7%A0%81" title="ISO3166-1_alpha-2" target="_blank">ISO3166-1_alpha-2</a> 的2字母地区代码（通常大写），或<a href="https://zh.wikipedia.org/wiki/UN_M.49" title="UNM.49" target="_blank">UNM.49</a>的3数字地理区代码</li>
+  <li>variant：<a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry" title="IANA语言子标签注册表" target="_blank">IANA语言子标签注册表</a> 每个为5至8个字母，或者4字母后跟1个数字</li>
+  <li>extension：暂时未知</li>
+  <li>privateuse：暂时未知</li>
+</ul>
+
+<p>看完上面的解释介绍，估计大家的内心基本都是这样的→ 😒😖🥴😵。这才刚开始讲，就遇到了一堆的专有名称，一堆的国际规范，用一个字形容我此刻的心情——<strong>懵</strong>！</p>
+
+<p>对新规范的解读先暂停一下，我们还是先回过头从<code class="highlighter-rouge">zh-CN</code>的历史开始讲起吧。</p>
+
+<h3 id="历史">历史</h3>
+<p>1995年3月 IETF（互联网工程任务组）发布了最早的 <a href="https://tools.ietf.org/rfc/rfc1766.txt" title="RFC1766" target="_blank">RFC1766</a> 语言标签规范。这套规范使用 <a href="http://www.mathguide.de/info/tools/languagecode.html" title="ISO639-1" target="_blank">ISO639-1</a> 的2字母语言代码，<a href="http://www.mathguide.de/info/tools/languagecode.html" title="ISO3166-1_alpha-2" target="_blank">ISO3166-1_alpha-2</a> 的2字母国家地区代码并约定大写。<a href="http://www.mathguide.de/info/tools/languagecode.html" title="ISO639-1" target="_blank">ISO639-1</a> 规范中汉语使用<code class="highlighter-rouge">zh</code>表示，来自“中文”的汉语拼音：<code class="highlighter-rouge">Zhōngwén</code>。<a href="https://zh.wikipedia.org/wiki/ISO_3166-1%E4%BA%8C%E4%BD%8D%E5%AD%97%E6%AF%8D%E4%BB%A3%E7%A0%81" title="ISO3166-1_alpha-2" target="_blank">ISO3166-1_alpha-2</a> 规范中中国的代码是<code class="highlighter-rouge">CN</code>，这大概就是<code class="highlighter-rouge">zh-CN</code>的由来，也是目前使用最普遍的一种中文语言标签。</p>
+
+<p>2001年1月发布的 <a href="https://tools.ietf.org/rfc/rfc3066.txt" title="RFC3066" target="_blank">RFC3066</a> 语言标签规范，使用 <a href="https://iso639-3.sil.org/code_tables/639/data" title="ISO639-2" target="_blank">ISO639-2</a> 的3字母语言代码，汉语用<code class="highlighter-rouge">zho</code>表示，同样来自“中文”的汉语拼音 <code class="highlighter-rouge">Zhōngwén</code>的前3个字母。</p>
+
+<p>2006年9月发布 <a href="https://iso639-3.sil.org/code_tables/639/data" title="RFC4646" target="_blank">RFC4646</a>（规范的主体）与 <a href="https://tools.ietf.org/rfc/rfc4647.txt" title="RFC4647">RFC4647</a>（处理匹配行为）语言标签规范。 <a href="https://tools.ietf.org/rfc/rfc4646.txt" title="RFC4646" target="_blank">RFC4646</a> 增加了使用 <a href="https://www.unicode.org/iso15924/iso15924-codes.html" title="ISO15924" target="_blank">ISO15924</a> 的4字母书写文字子标签，简体中文是<code class="highlighter-rouge">Hans</code>，繁体中文是<code class="highlighter-rouge">Hant</code>，以及 <a href="https://zh.wikipedia.org/wiki/UN_M.49" title="UNM.49" target="_blank">UNM.49</a> 的3数字地理分区码。</p>
+
+<p>2009年9月发布 <a href="https://tools.ietf.org/rfc/rfc5646.txt" title="RFC5646" target="_blank">RFC5646</a>，引入了3字符码的 <a href="https://iso639-3.sil.org/code_tables/639/data" title="ISO639-3" target="_blank">ISO639-3</a> 与 <a href="https://www.loc.gov/standards/iso639-5/id.php" title="ISO639-5" target="_blank">ISO639-5</a> 作为语言子标签。其中，<a href="https://iso639-3.sil.org/code_tables/639/data" title="ISO639-3" target="_blank">ISO639-3</a> 认定汉语文（<code class="highlighter-rouge">zho</code>）是一个大语文（macrolanguage），包含14种语文：<code class="highlighter-rouge">cdo</code> – 闽东语，<code class="highlighter-rouge">cjy</code> – 晋语，<code class="highlighter-rouge">cmn</code> – 普通话或國語，<code class="highlighter-rouge">cpx</code> – 莆仙语，<code class="highlighter-rouge">czh</code> – 徽语，<code class="highlighter-rouge">czo</code> – 闽中语，<code class="highlighter-rouge">gan</code> – 赣语，<code class="highlighter-rouge">hak</code> – 客家话，<code class="highlighter-rouge">hsn</code> – 湘语，<code class="highlighter-rouge">mnp</code> – 闽北语，<code class="highlighter-rouge">nan</code> – 闽南语，<code class="highlighter-rouge">wuu</code> – 吴语，<code class="highlighter-rouge">yue</code> – 粤语，<code class="highlighter-rouge">lzh</code> - 文言文。</p>
+
+<p>2009年9月发布的 <a href="https://www.ietf.org/rfc/bcp/bcp47.txt" title="BCP47" target="_blank">BCP47</a> 整合了 <a href="https://tools.ietf.org/rfc/rfc4647.txt" title="RFC4647" target="_blank">RFC4647</a> 和 <a href="https://tools.ietf.org/rfc/rfc5646.txt" title="RFC5646" target="_blank">RFC5646</a> 形成语言标签最佳实践，仍然使用<code class="highlighter-rouge">zh</code>作为大语文（macrolanguage）的标签，辅以 <a href="https://iso639-3.sil.org/code_tables/639/data" title="ISO639-3" target="_blank">ISO639-3</a> 中引入的另外14种语文标签作为方言扩展标签，但推荐方言扩展标签直接作为主语言标签。因此，赣语的标签以<code class="highlighter-rouge">zh-gan</code>或 <code class="highlighter-rouge">gan</code>开头、粤语以<code class="highlighter-rouge">zh-yue</code>或<code class="highlighter-rouge">yue</code>开头、普通话以<code class="highlighter-rouge">zh-cmn</code>或<code class="highlighter-rouge">cmn</code>开头，<a href="https://www.ietf.org/rfc/bcp/bcp47.txt" title="BCP47" target="_blank">BCP47</a> 规范建议优先选择后者。但关于这点目前在业界是有争议的，普遍的观点是希望保留<code class="highlighter-rouge">zh</code>作为主语言标签，这样能更好的向前兼容。</p>
+
+<h3 id="iana-语言子标签注册表">IANA 语言子标签注册表</h3>
+<p>了解了语言标签规范的发展历史，我们再回到 <a href="https://www.ietf.org/rfc/bcp/bcp47.txt" title="BCP47" target="_blank">BCP47</a> 规范，语言标签描述规则中的以下子标签：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language - extlang - script - region - variant - extension - privateuse
+</code></pre></div></div>
+
+<p>在这些子标签中 推荐 使用 <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry" title="IANA语言子标签注册表" target="_blank">IANA语言子标签注册表</a> 中的子标签格式，这些格式通常是来源于各种 ISO 标准中的通用约定。</p>
+
+<p>示例1：region的取值 CN（中国）</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%%
+Type: region
+Subtag: CN
+Description: China
+Added: 2005-10-16
+%%
+</code></pre></div></div>
+
+<p>示例2：script 的取值 Hans（简体中文）</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%%
+Type: script
+Subtag: Hans
+Description: Han (Simplified variant)
+Added: 2005-10-16
+%%
+</code></pre></div></div>
+
+<h3 id="中文子标签一览">中文子标签一览</h3>
+
+<p><a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry" title="IANA语言子标签注册表" target="_blank">IANA语言子标签注册表</a> 中，以下<code class="highlighter-rouge">extlang</code> 中的方言同时也被归类到了<code class="highlighter-rouge">language</code>中，<a href="https://www.ietf.org/rfc/bcp/bcp47.txt" title="BCP47" target="_blank">BCP47</a> 规范是建议将下面的<code class="highlighter-rouge">extlang</code> 直接作为主语言使用。我再测验W3C的web标准时，发现W3C仍然建议是主语言使用<code class="highlighter-rouge">zh</code>，而<code class="highlighter-rouge">extlang</code>作为扩展方言使用。</p>
+
+<h4 id="language">language</h4>
+<ul>
+  <li><code class="highlighter-rouge">zh</code> 中国字或中国话</li>
+</ul>
+
+<h4 id="extlang">extlang</h4>
+<ul>
+  <li><code class="highlighter-rouge">cdo</code> 闽东语</li>
+  <li><code class="highlighter-rouge">cjy</code> 晋语</li>
+  <li><code class="highlighter-rouge">cmn</code> 普通话或國語</li>
+  <li><code class="highlighter-rouge">cpx</code> 莆仙语</li>
+  <li><code class="highlighter-rouge">czh</code> 徽语</li>
+  <li><code class="highlighter-rouge">czo</code> 闽中语</li>
+  <li><code class="highlighter-rouge">gan</code> 赣语</li>
+  <li><code class="highlighter-rouge">hak</code> 客家话</li>
+  <li><code class="highlighter-rouge">hsn</code> 湘语</li>
+  <li><code class="highlighter-rouge">mnp</code> 闽北语</li>
+  <li><code class="highlighter-rouge">nan</code> 闽南语</li>
+  <li><code class="highlighter-rouge">wuu</code> 吴语</li>
+  <li><code class="highlighter-rouge">yue</code> 粤语</li>
+  <li><code class="highlighter-rouge">lzh</code> 文言文</li>
+</ul>
+
+<h3 id="script">script</h3>
+<ul>
+  <li><code class="highlighter-rouge">Hans</code> 简体汉字</li>
+  <li><code class="highlighter-rouge">Hant</code> 繁体汉字</li>
+</ul>
+
+<h3 id="region">region</h3>
+<ul>
+  <li><code class="highlighter-rouge">CN</code> CHINA 中国</li>
+  <li><code class="highlighter-rouge">HK</code> HONG KONG 香港</li>
+  <li><code class="highlighter-rouge">TW</code> Taiwan 台湾</li>
+  <li><code class="highlighter-rouge">SG</code> Singapore 新加坡</li>
+</ul>
+
+<h3 id="正确的写法">正确的写法</h3>
+
+<p>综上所述，从 <a href="https://www.ietf.org/rfc/bcp/bcp47.txt" title="BCP47" target="_blank">BCP47</a> 规范的定义中，我们不难发现<code class="highlighter-rouge">zh-CN</code>这种语言标签的写法已经过时，不符合规范，所以我从网上摘抄了一些标准的写法——</p>
+
+<h4 id="文字例子">文字例子</h4>
+<p><code class="highlighter-rouge">圆珠笔</code>  zh-Hans-CN<br />
+<code class="highlighter-rouge">原子筆</code>  zh-Hant-TW<br />
+<code class="highlighter-rouge">它是一个刮胡刀</code>   zh-Hans-CN<br />
+<code class="highlighter-rouge">佢系一个须刨嚟嘅</code>   yue-Hans<br />
+<code class="highlighter-rouge">佢係一個鬚刨嚟嘅</code>   yue-Hant<br />
+<code class="highlighter-rouge">驴不胜怒，蹄之</code>   zh-lzh-Hans<br />
+<code class="highlighter-rouge">驢不勝怒，蹄之</code>   zh-lzh-Hant<br />
+<code class="highlighter-rouge">驴发怒，踢他了</code>   zh-Hans-CN<br /></p>
+
+<h3 id="语言标签解释">语言标签解释</h3>
+<p><code class="highlighter-rouge">zh-Hans</code>   简体中文（个人推荐）<br />
+<code class="highlighter-rouge">zh-Hans-CN</code>   以简体中文书写的中国大陆用词<br />
+<code class="highlighter-rouge">zh-Hans-HK</code>   以简体中文书写的香港地区用词<br />
+<code class="highlighter-rouge">zh-Hant</code>   繁體中文<br />
+<code class="highlighter-rouge">zh-Hant-HK</code>   以繁體中文書寫的香港地區用詞<br />
+<code class="highlighter-rouge">zh-Hant-TW</code>   以繁體中文書寫的台灣地區用詞<br />
+<code class="highlighter-rouge">yue</code>   粤语发音<br />
+<code class="highlighter-rouge">cmn</code>   普通话或國語发音<br />
+<code class="highlighter-rouge">yue-Hans</code>   以简体中文书写的粤语用词<br />
+<code class="highlighter-rouge">zh-yue-Hans</code>   以简体中文书写的粤语用词（个人推荐）<br />
+<code class="highlighter-rouge">yue-Hant</code>   以繁體中文書寫的粵語用詞<br />
+<code class="highlighter-rouge">cmn-Hans</code>   以简体中文书写的普通话用词<br />
+<code class="highlighter-rouge">zh-cmn-Hans</code>   以简体中文书写的普通话用词（个人推荐）<br />
+<code class="highlighter-rouge">cmn-Hans-CN</code>   以简体中文书写的中国大陆普通话用词<br />
+<code class="highlighter-rouge">cmn-Hant-HK</code>   以繁體中文書寫的香港地区普通話用詞<br />
+<code class="highlighter-rouge">cmn-Hant-TW</code>   以繁體中文書寫的台湾地区國語用詞<br /></p>
+
+<h3 id="资料参考">资料参考</h3>
+<ul>
+  <li><em><a href="https://www.cnblogs.com/sink_cup/archive/2011/04/15/written_language_and_spoken_language.html" title="www.cnblogs.com/sink_cup/ar…" target="_blank">www.cnblogs.com/sink_cup/ar…</a></em></li>
+  <li><em><a href="https://www.cnblogs.com/sink_cup/archive/2010/07/01/language_subtag_registry.html" title="www.cnblogs.com/sink_cup/ar…" target="_blank">www.cnblogs.com/sink_cup/ar…</a></em></li>
+  <li><em><a href="https://www.jianshu.com/p/f00414cc566e" title="www.jianshu.com/p/f00414cc5…">www.jianshu.com/p/f00414cc5…</a></em></li>
+  <li><em><a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry" title="www.iana.org/assignments…" target="_blank">www.iana.org/assignments…</a></em></li>
+  <li><em><a href="https://zh.wikipedia.org/wiki/IETF%E8%AA%9E%E8%A8%80%E6%A8%99%E7%B1%A4#cite_note-10" title="zh.wikipedia.org/wiki/IETF%E…" target="_blank">zh.wikipedia.org/wiki/IETF%E…</a></em></li>
+  <li><em><a href="https://zhuanlan.zhihu.com/p/29305702" title="zhuanlan.zhihu.com/p/29305702" target="_blank">zhuanlan.zhihu.com/p/29305702</a></em></li>
+  <li><em><a href="https://www.zhihu.com/question/21980689/answer/93615123" title="www.zhihu.com/question/21…" target="_blank">www.zhihu.com/question/21…</a></em></li>
+  <li><em><a href="https://www.ietf.org/rfc/bcp/bcp47.txt" title="www.ietf.org/rfc/bcp/bcp…" target="_blank">www.ietf.org/rfc/bcp/bcp…</a></em></li>
+  <li><em><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/lang" title="developer.mozilla.org/zh-CN/docs/…" target="_blank">developer.mozilla.org/zh-CN/docs/…</a></em></li>
+</ul>
+
+	</div>
+	<div class="pagination">
+		
+		<div class="hidden">Y.cool - 歪酷博客</div><a href="/post/20201120.html" class="left arrow">◀️ 上一篇</a>
+		
+		
+		<a href="/post/20201114.html" class="right arrow">下一篇 ▶️</a><div class="hidden">Y.cool - 歪酷博客</div>
+		
+	</div>
+	<div class="pagination"></div>
+	<div id="tcomment"></div>
+</main>
+<script type="text/javascript" src="//cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js"></script>
+<script>twikoo.init({ envId: 'https://api.my.eu.org', el: '#tcomment' })</script>
+<script type="text/javascript" src="//cdn.staticfile.org/highlight.js/11.4.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" src="//cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initLineNumbersOnLoad();</script>
+
+    <footer>
+  <span>
+    <time>2022</time> © <a href="/" title="Y.cool">Y.cool</a> - <a href="https://icp.gov.moe/?keyword=20227788" target="_blank">萌ICP备20227788号</a> - <a href="/sitemap.xml" title="Sitemap">SITEMAP</a>　<a href="/feed.xml" title="RSS"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;width:1rem;height:1rem"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
+  </span>
+</footer>
+<script src="//cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+<script src="//cdn.staticfile.org/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

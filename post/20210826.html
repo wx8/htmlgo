@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+  <head>
+  <title>
+    Microsoft Authenticator - 歪酷博客（Y.cool）
+    
+  </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="因为手机用的是iOS系统，电脑又是Windows系统，这之间就涉及到一个常用且实用的问题——密码同步。">
+  <meta property="author" content="熊の猫">
+  <link rel="dns-prefetch" href="//tcb-api.tencentcloudapi.com">
+  <link rel="dns-prefetch" href="//cravatar.cn">
+  <link rel="dns-prefetch" href="//cdn.staticfile.org">
+  <link rel="dns-prefetch" href="//y.com.nu">
+  <link rel="stylesheet" href="/main.min.css">
+  <link rel="stylesheet" href="//cdn.staticfile.org/font-awesome/6.2.1/css/all.min.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="//y.com.nu/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="//y.com.nu/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="//y.com.nu/icons/apple-touch-icon.png">
+  <link rel="manifest" href="//y.com.nu/icons/site.webmanifest">
+  <link rel="alternate" type="application/atom+xml" title="Y.cool's RSS" href="//y.cool/feed.xml">
+  <link type="application/atom+xml" rel="alternate" href="https://y.cool/feed.xml" title="歪酷博客" />
+  <meta http-equiv="refresh" content="0";url=https://cathay.blog/post/20210826.html" />
+</head>
+
+
+  <body>
+
+    <header class="nav">
+  <div class="nav-container">
+    <a title="歪酷博客-Y.cool" href="/">
+		<div class="logo">🆈.cool+⁺</div>
+	</a>
+    <h1 class="hidden">歪酷博客-Y.cool</h1>
+	<div class="desktop">
+		<ul>
+			<li><a href="/archive" style="color:#61bfad">归档</a></li>
+			<li><a href="/about" style="color:#fd8b8b">作者</a></li>
+			<li><a href="/friend" style="color:#ffab00">朋友</a></li>
+			<li><a href="/search"><svg data-icon="search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="vertical-align:middle;color:#99ccff;width:1rem;height:1rem"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></a></li>
+		</ul>
+	</div>
+	<div class="dropdown">
+		<button class="dropbtn">☰</button>
+		<div class="dropdown-content">
+			<a href="/archive">归档</a>
+			<a href="/about">作者</a>
+			<a href="/friend">朋友</a>
+			<a href="/search">检索</a>
+		</div>
+	</div>
+  </div>
+</header>
+
+
+    <main class="homehead">
+	<div class="post">
+		<h2 class="post-title">Microsoft Authenticator</h2>
+		<div class="post-info">
+			
+			<time>熊の猫 写于 2021年08月26日</time><div class="hidden">Y.cool - 歪酷博客</div>
+			
+		</div>
+		<p>因为手机用的是iOS系统，电脑又是Windows系统，这之间就涉及到一个常用且实用的问题——密码同步。</p>
+
+<p>早期的时候我用<code class="highlighter-rouge">LastPass</code>的作为移动端与PC端的密码同步工具，后来<code class="highlighter-rouge">LastPass</code>在国内被告了商标侵权而下架，那时候我刚好换手机，于是乎<code class="highlighter-rouge">LastPass</code>就和我Say Goodbye了。</p>
+
+<p>后来又遇到了开源的<code class="highlighter-rouge">Bitwarden</code>，可以无缝导入<code class="highlighter-rouge">LastPass</code>的数据，就这样我用了<code class="highlighter-rouge">Bitwarden的</code>一直到现在。但是每次Windows和iOS之前靠这样一个桥梁来回同步，还是有些让人不爽，可不可以再精简一下呢，就是Windows直接和iOS密码同步呢？答案是有的，就是微软自家出的’Microsoft Authenticator’。</p>
+
+<p><code class="highlighter-rouge">Microsoft Authenticator</code>之前仅仅是一个好用的二次验证工具，每次在登录微软账号的时候，只需要在手机上点一下（不用扫一下），不用输入密码就能完成登录了。但是，对我来说，<code class="highlighter-rouge">Microsoft Authenticator</code>太鸡肋了。所以没太关注。</p>
+
+<p>不过去年开始，<code class="highlighter-rouge">Microsoft Authenticator</code>可以在APP的设置中打开密码管理器功能，然后，<code class="highlighter-rouge">Microsoft Authenticator</code>就会帮你同步保存自 Edge 浏览器中的密码（需要登录同一个微软账号）。之后就像其它密码管理器一样，需要在手机系统中选择’Microsoft Authenticator’作为默认的密码管理器，这样就能实现密码的同步自动填入了。</p>
+
+<p><code class="highlighter-rouge">Microsoft Authenticator</code>不仅有iOS版APP，也有安卓版的，但是据说必须要有谷歌框架才能正常工作。额。。。看来事情总是不会太完美。另外，在使用过程中也发现<code class="highlighter-rouge">Microsoft Authenticator</code>存在的一些问题，比如：不支持在手机上添加新密码；第一次同步密码的速度简直让人抓狂……</p>
+
+	</div>
+	<div class="pagination">
+		
+		<div class="hidden">Y.cool - 歪酷博客</div><a href="/post/20210909.html" class="left arrow">◀️ 上一篇</a>
+		
+		
+		<a href="/post/20210528.html" class="right arrow">下一篇 ▶️</a><div class="hidden">Y.cool - 歪酷博客</div>
+		
+	</div>
+	<div class="pagination"></div>
+	<div id="tcomment"></div>
+</main>
+<script type="text/javascript" src="//cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js"></script>
+<script>twikoo.init({ envId: 'https://api.my.eu.org', el: '#tcomment' })</script>
+<script type="text/javascript" src="//cdn.staticfile.org/highlight.js/11.4.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" src="//cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initLineNumbersOnLoad();</script>
+
+    <footer>
+  <span>
+    <time>2022</time> © <a href="/" title="Y.cool">Y.cool</a> - <a href="https://icp.gov.moe/?keyword=20227788" target="_blank">萌ICP备20227788号</a> - <a href="/sitemap.xml" title="Sitemap">SITEMAP</a>　<a href="/feed.xml" title="RSS"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;width:1rem;height:1rem"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
+  </span>
+</footer>
+<script src="//cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+<script src="//cdn.staticfile.org/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

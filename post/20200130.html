@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+  <head>
+  <title>
+    INWX域名如何设置CloudFlare的DNSSEC - 歪酷博客（Y.cool）
+    
+  </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="我这个域名是在INWX注册的，因为价格便宜。注册后发现，INWX的域名管理系统相当完善，不仅有强大的DNS管理系统、免费的SSL、Glue Records、Master/Slave DNS等，同样也支持DNSSEC。但是，当我尝试用CloudFlare提供的DNSSEC参数的时候，却发现INWX必须手动配置DNS...">
+  <meta property="author" content="熊の猫">
+  <link rel="dns-prefetch" href="//tcb-api.tencentcloudapi.com">
+  <link rel="dns-prefetch" href="//cravatar.cn">
+  <link rel="dns-prefetch" href="//cdn.staticfile.org">
+  <link rel="dns-prefetch" href="//y.com.nu">
+  <link rel="stylesheet" href="/main.min.css">
+  <link rel="stylesheet" href="//cdn.staticfile.org/font-awesome/6.2.1/css/all.min.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="//y.com.nu/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="//y.com.nu/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="//y.com.nu/icons/apple-touch-icon.png">
+  <link rel="manifest" href="//y.com.nu/icons/site.webmanifest">
+  <link rel="alternate" type="application/atom+xml" title="Y.cool's RSS" href="//y.cool/feed.xml">
+  <link type="application/atom+xml" rel="alternate" href="https://y.cool/feed.xml" title="歪酷博客" />
+  <meta http-equiv="refresh" content="0";url=https://cathay.blog/post/20200130.html" />
+</head>
+
+
+  <body>
+
+    <header class="nav">
+  <div class="nav-container">
+    <a title="歪酷博客-Y.cool" href="/">
+		<div class="logo">🆈.cool+⁺</div>
+	</a>
+    <h1 class="hidden">歪酷博客-Y.cool</h1>
+	<div class="desktop">
+		<ul>
+			<li><a href="/archive" style="color:#61bfad">归档</a></li>
+			<li><a href="/about" style="color:#fd8b8b">作者</a></li>
+			<li><a href="/friend" style="color:#ffab00">朋友</a></li>
+			<li><a href="/search"><svg data-icon="search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="vertical-align:middle;color:#99ccff;width:1rem;height:1rem"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></a></li>
+		</ul>
+	</div>
+	<div class="dropdown">
+		<button class="dropbtn">☰</button>
+		<div class="dropdown-content">
+			<a href="/archive">归档</a>
+			<a href="/about">作者</a>
+			<a href="/friend">朋友</a>
+			<a href="/search">检索</a>
+		</div>
+	</div>
+  </div>
+</header>
+
+
+    <main class="homehead">
+	<div class="post">
+		<h2 class="post-title">INWX域名如何设置CloudFlare的DNSSEC</h2>
+		<div class="post-info">
+			
+			<time>熊の猫 写于 2020年01月30日</time><div class="hidden">Y.cool - 歪酷博客</div>
+			
+		</div>
+		<p>我这个域名是在<a href="https://www.inwx.com/en" title="INWX" target="_blank">INWX</a>注册的，因为价格便宜。注册后发现，INWX的域名管理系统相当完善，不仅有强大的DNS管理系统、<del>免费的</del>SSL、Glue Records、Master/Slave DNS等，同样也支持DNSSEC。但是，当我尝试用CloudFlare提供的DNSSEC参数的时候，却发现INWX必须手动配置DNSSEC才行。</p>
+
+<p>因此，编写了这个简短的教程，希望能够帮助更多的人。</p>
+
+<h3 id="用cloudflare准备dnssec">用Cloudflare准备DNSSEC</h3>
+
+<p>首先第一步是要开启CloudFlare的DNSSEC，它就在DNS选项卡下面一点点的位置。找到DNSSEC之后，单击<code class="highlighter-rouge">Enable DNSSEC</code>开启DNSSEC。这时你将会看到有关DNSSEC配置的许多参数，Cloudflare要求我们将这些信息添加到域名注册平台中去。由于域名是在INWX注册的，所以接下来去INWX登录吧。</p>
+
+<h3 id="在inwx站点上设置dnssec">在INWX站点上设置DNSSEC</h3>
+
+<p>登录INWX后，在侧栏中搜索DNSSEC选项卡，然后在打开的页面上单击<code class="highlighter-rouge">Add DNSSEC</code>（页面右上角很小的一个按钮），这时会弹出一个窗口。在该弹出窗口中，首先填入你要添加DNSSEC的域名，然后取消选中<code class="highlighter-rouge">automatic modus</code>的复选框，这时将弹出两个附加字段。不要被名称迷惑了（CloudFlare和INWX的DS Record不是一回事），我们只需要填写第一个字段就可以了。</p>
+
+<p>不过，在INWX家的DNSKEY RR记录，并不能直接复制和粘贴使用Cloudflare管理面板中的参数。我们必须要自己手动建立（这里是唯一的难点）。好在官方提供和的DNSSEC规范很有帮助。</p>
+
+<h3 id="如何从cloudflare的参数中构建dnskey-rr记录">如何从Cloudflare的参数中构建DNSKEY RR记录</h3>
+
+<p>Cloudflare在DNSSEC面板中提供了很多值，但没有提供易于复制的DNSKEY RR记录。好在自行构建非常容易。打开文本编辑器稍加改造就可以使用了。</p>
+
+<ol>
+  <li>首先，从Cloudflare复制DS Record值。</li>
+  <li>将<code class="highlighter-rouge">IN DS</code>替换为<code class="highlighter-rouge">IN DNSKEY</code>。</li>
+  <li>用<code class="highlighter-rouge">Flags</code>值（即257）替换指定为<code class="highlighter-rouge">Key Tag</code>的字符串后的数字（即2345）。</li>
+  <li>用<code class="highlighter-rouge">3 13</code>替换最后两个数字，例如<code class="highlighter-rouge">13 2</code>，因为<code class="highlighter-rouge">3</code>是DNSKEY记录中的固定值，而<code class="highlighter-rouge">13</code>是Cloudflare使用的官方算法。</li>
+  <li>用公共密钥字段的值替换最后一个长字符串。</li>
+</ol>
+
+<p>现在通过改造，我们会得到一个类似于以下内容的记录：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yourdomain.com. 3600 IN DNSKEY 257 3 13 oJB1W6WNGv+ldv[...]eDQfsS3Ap3o=
+</code></pre></div></div>
+
+<p>然后把上面这些文本粘贴到INWX的DNSKEY RR字段中，因此它看起来像这样：</p>
+
+<p><img src="https://y.com.nu/album/20200130-1.jpg" alt="" /></p>
+
+<p>单击<code class="highlighter-rouge">SAVE</code>按钮，就算大功告成了。不过这时候，Cloudflare还无法正确识别已配置的域名，这需要一点时间。我们可以沏一杯茶，边看新型冠状病毒的新闻，边等它生效了。</p>
+
+	</div>
+	<div class="pagination">
+		
+		<div class="hidden">Y.cool - 歪酷博客</div><a href="/post/20200202.html" class="left arrow">◀️ 上一篇</a>
+		
+		
+		<a href="/post/20200129.html" class="right arrow">下一篇 ▶️</a><div class="hidden">Y.cool - 歪酷博客</div>
+		
+	</div>
+	<div class="pagination"></div>
+	<div id="tcomment"></div>
+</main>
+<script type="text/javascript" src="//cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js"></script>
+<script>twikoo.init({ envId: 'https://api.my.eu.org', el: '#tcomment' })</script>
+<script type="text/javascript" src="//cdn.staticfile.org/highlight.js/11.4.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" src="//cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initLineNumbersOnLoad();</script>
+
+    <footer>
+  <span>
+    <time>2022</time> © <a href="/" title="Y.cool">Y.cool</a> - <a href="https://icp.gov.moe/?keyword=20227788" target="_blank">萌ICP备20227788号</a> - <a href="/sitemap.xml" title="Sitemap">SITEMAP</a>　<a href="/feed.xml" title="RSS"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;width:1rem;height:1rem"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
+  </span>
+</footer>
+<script src="//cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+<script src="//cdn.staticfile.org/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

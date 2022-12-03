@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+  <head>
+  <title>
+    使用Outlook搭建域名邮箱 - 歪酷博客（Y.cool）
+    
+  </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="有些时候，不发飙真就不能办成事。如君所见，在CrazyDomains上注册的域名，经过我几次三番地沟通之后，终于在我暴怒的情绪下可以正常使用了。而这期间，整整花费了大约72小时。牢骚就不多说了，下面开始教大家如何用Outlook免费搭建我们的域名邮箱。">
+  <meta property="author" content="熊の猫">
+  <link rel="dns-prefetch" href="//tcb-api.tencentcloudapi.com">
+  <link rel="dns-prefetch" href="//cravatar.cn">
+  <link rel="dns-prefetch" href="//cdn.staticfile.org">
+  <link rel="dns-prefetch" href="//y.com.nu">
+  <link rel="stylesheet" href="/main.min.css">
+  <link rel="stylesheet" href="//cdn.staticfile.org/font-awesome/6.2.1/css/all.min.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="//y.com.nu/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="//y.com.nu/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="//y.com.nu/icons/apple-touch-icon.png">
+  <link rel="manifest" href="//y.com.nu/icons/site.webmanifest">
+  <link rel="alternate" type="application/atom+xml" title="Y.cool's RSS" href="//y.cool/feed.xml">
+  <link type="application/atom+xml" rel="alternate" href="https://y.cool/feed.xml" title="歪酷博客" />
+  <meta http-equiv="refresh" content="0";url=https://cathay.blog/post/2020204.html" />
+</head>
+
+
+  <body>
+
+    <header class="nav">
+  <div class="nav-container">
+    <a title="歪酷博客-Y.cool" href="/">
+		<div class="logo">🆈.cool+⁺</div>
+	</a>
+    <h1 class="hidden">歪酷博客-Y.cool</h1>
+	<div class="desktop">
+		<ul>
+			<li><a href="/archive" style="color:#61bfad">归档</a></li>
+			<li><a href="/about" style="color:#fd8b8b">作者</a></li>
+			<li><a href="/friend" style="color:#ffab00">朋友</a></li>
+			<li><a href="/search"><svg data-icon="search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="vertical-align:middle;color:#99ccff;width:1rem;height:1rem"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></a></li>
+		</ul>
+	</div>
+	<div class="dropdown">
+		<button class="dropbtn">☰</button>
+		<div class="dropdown-content">
+			<a href="/archive">归档</a>
+			<a href="/about">作者</a>
+			<a href="/friend">朋友</a>
+			<a href="/search">检索</a>
+		</div>
+	</div>
+  </div>
+</header>
+
+
+    <main class="homehead">
+	<div class="post">
+		<h2 class="post-title">使用Outlook搭建域名邮箱</h2>
+		<div class="post-info">
+			
+			<time>熊の猫 写于 2020年02月04日</time><div class="hidden">Y.cool - 歪酷博客</div>
+			
+		</div>
+		<p>有些时候，不发飙真就不能办成事。如君所见，在CrazyDomains上注册的域名，经过我几次三番地沟通之后，终于在我暴怒的情绪下可以正常使用了。而这期间，整整花费了大约72小时。牢骚就不多说了，下面开始教大家如何用Outlook免费搭建我们的域名邮箱。</p>
+
+<p>每每在拿到一个新域名时，配置相应的邮件服务器是必不可少的一个步骤。现在的网络上很多免费的邮件系统可以使用，比如：Zoho Mail、Migadu、Yandex、腾讯企业邮箱等等，但是这类邮箱对我而言是比较麻烦的，因为又得开通一个新邮箱，并且还要时时关注它是否有新邮件。相对来说，QQ的域名邮箱就很不错，和我常用的邮箱合在一起，方便收发、方便阅读。但是，QQ域名邮箱支持的域名后缀实在太少，新域名和国别域名几乎都不认。</p>
+
+<p>那么还有其他什么方法吗？答案是——必须有。</p>
+
+<h3 id="启用邮件转发服务">启用邮件转发服务</h3>
+
+<p>根据<a href="https://www.appinn.com/improv-mx/" target="_blank">@小众软件</a>的介绍，我们可以使用<a href="https://improvmx.com/" target="_blank">ImprovMX</a>和<a href="https://forwardemail.net/zh" target="_blank">ForwardEmail</a>这两家免费的邮箱转发服务。当然，现在国外也有不少域名注册商也提供这样的邮件转发服务。这里，我们以ImprovMX服务为例。</p>
+
+<p>打开域名的DNS，添加如下的MX记录，以便于启用ImprovMX邮件转向服务:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Host</th>
+      <th>Value</th>
+      <th>Priority</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>@</td>
+      <td>mx1.improvmx.com</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>@</td>
+      <td>mx2.improvmx.com</td>
+      <td>20</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>然后在ImprovMX添加想要配置的域名以及你个人的Outlook邮箱，然后进行验证。</p>
+
+<p>这样，我们的域名邮箱就可以实现收邮件了。</p>
+
+<p>但是，想要用我们的域名邮箱发邮件，又该怎么办呢？请往下看。</p>
+
+<h3 id="配置outlook">配置Outlook</h3>
+
+<p>登录Outlook → 点击右上角的<code class="highlighter-rouge">设置</code> → 点击右下角的<code class="highlighter-rouge">查看全部Outlook设置</code> → 点击中间栏的<code class="highlighter-rouge">同步电子邮件</code> → 向下翻，点击<code class="highlighter-rouge">管理或选择主别名</code> → 在弹出的新页面输入Outlook的账号、密码并登录 → 点击<a href="https://account.live.com/AddAssocId?uaid=561d21f919814d29826c6435d2bcefed" target="_blank"><code class="highlighter-rouge">添加电子邮件</code></a> → 勾选<code class="highlighter-rouge">将现有电子邮件地址添加为 Microsoft 帐户别名</code>并输入刚刚在ImprovMX设置好的域名邮箱 → 点击<code class="highlighter-rouge">添加别名</code>。</p>
+
+<p>这样，Outlook的第一步配置工作就完成了。我们会在<code class="highlighter-rouge">账户别名</code>里看到刚刚添加的域名邮箱，但是后面还有一个<code class="highlighter-rouge">验证</code>的链接，不要犹豫点击它，Outlook会自动给域名邮箱发送一封验证邮件的链接。</p>
+
+<p>由于之前我们已经让ImprovMX把所有域名的邮件都转发到Outlook邮箱，所以打开我们的Outlook收件箱，就会看到这封验证邮件。点击验证的超链接，我们的域名邮箱就会被Outlook认证。至此，我们的域名邮箱就可以发邮件了。</p>
+
+<p>这里要说明的是，如果不是将域名邮箱<code class="highlighter-rouge">设置为主要</code>，那么默认还是会用Outlook账号发送，这就需要我们在写邮件的时候手动点击一下<code class="highlighter-rouge">发件人</code>，就可以我们的域名邮箱发件了。</p>
+
+	</div>
+	<div class="pagination">
+		
+		<div class="hidden">Y.cool - 歪酷博客</div><a href="/post/20200209.html" class="left arrow">◀️ 上一篇</a>
+		
+		
+		<a href="/post/20200202.html" class="right arrow">下一篇 ▶️</a><div class="hidden">Y.cool - 歪酷博客</div>
+		
+	</div>
+	<div class="pagination"></div>
+	<div id="tcomment"></div>
+</main>
+<script type="text/javascript" src="//cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js"></script>
+<script>twikoo.init({ envId: 'https://api.my.eu.org', el: '#tcomment' })</script>
+<script type="text/javascript" src="//cdn.staticfile.org/highlight.js/11.4.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" src="//cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initLineNumbersOnLoad();</script>
+
+    <footer>
+  <span>
+    <time>2022</time> © <a href="/" title="Y.cool">Y.cool</a> - <a href="https://icp.gov.moe/?keyword=20227788" target="_blank">萌ICP备20227788号</a> - <a href="/sitemap.xml" title="Sitemap">SITEMAP</a>　<a href="/feed.xml" title="RSS"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;width:1rem;height:1rem"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
+  </span>
+</footer>
+<script src="//cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+<script src="//cdn.staticfile.org/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+  <head>
+  <title>
+    推荐几个评论外挂 - 歪酷博客（Y.cool）
+    
+  </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="在最早用WordPress、typecho等动态博客框架写博客的时候，由于评论是直接整合进数据库的，所以不需要特别操心。但后来改用静态博客之后，虽然在管理服务器方面基本没有什么烦恼了，但由于静态博客本身是无法支持评论的，所以如何呈现网友的评论就成了一个麻烦事。">
+  <meta property="author" content="熊の猫">
+  <link rel="dns-prefetch" href="//tcb-api.tencentcloudapi.com">
+  <link rel="dns-prefetch" href="//cravatar.cn">
+  <link rel="dns-prefetch" href="//cdn.staticfile.org">
+  <link rel="dns-prefetch" href="//y.com.nu">
+  <link rel="stylesheet" href="/main.min.css">
+  <link rel="stylesheet" href="//cdn.staticfile.org/font-awesome/6.2.1/css/all.min.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="//y.com.nu/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="//y.com.nu/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="//y.com.nu/icons/apple-touch-icon.png">
+  <link rel="manifest" href="//y.com.nu/icons/site.webmanifest">
+  <link rel="alternate" type="application/atom+xml" title="Y.cool's RSS" href="//y.cool/feed.xml">
+  <link type="application/atom+xml" rel="alternate" href="https://y.cool/feed.xml" title="歪酷博客" />
+  <meta http-equiv="refresh" content="0";url=https://cathay.blog/post/20201114.html" />
+</head>
+
+
+  <body>
+
+    <header class="nav">
+  <div class="nav-container">
+    <a title="歪酷博客-Y.cool" href="/">
+		<div class="logo">🆈.cool+⁺</div>
+	</a>
+    <h1 class="hidden">歪酷博客-Y.cool</h1>
+	<div class="desktop">
+		<ul>
+			<li><a href="/archive" style="color:#61bfad">归档</a></li>
+			<li><a href="/about" style="color:#fd8b8b">作者</a></li>
+			<li><a href="/friend" style="color:#ffab00">朋友</a></li>
+			<li><a href="/search"><svg data-icon="search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="vertical-align:middle;color:#99ccff;width:1rem;height:1rem"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></a></li>
+		</ul>
+	</div>
+	<div class="dropdown">
+		<button class="dropbtn">☰</button>
+		<div class="dropdown-content">
+			<a href="/archive">归档</a>
+			<a href="/about">作者</a>
+			<a href="/friend">朋友</a>
+			<a href="/search">检索</a>
+		</div>
+	</div>
+  </div>
+</header>
+
+
+    <main class="homehead">
+	<div class="post">
+		<h2 class="post-title">推荐几个评论外挂</h2>
+		<div class="post-info">
+			
+			<time>熊の猫 写于 2020年11月14日</time><div class="hidden">Y.cool - 歪酷博客</div>
+			
+		</div>
+		<p>在最早用WordPress、typecho等动态博客框架写博客的时候，由于评论是直接整合进数据库的，所以不需要特别操心。但后来改用静态博客之后，虽然在管理服务器方面基本没有什么烦恼了，但由于静态博客本身是无法支持评论的，所以如何呈现网友的评论就成了一个麻烦事。</p>
+
+<p>静态博客本因为没有服务端程序接收请求，只能求助于系统外的服务。好在在众多互联网资源中，总会找到若干让我们心仪的博客评论系统解决评论的问题。</p>
+
+<p>传统常见的诸如<code class="highlighter-rouge">Disqus</code>、<code class="highlighter-rouge">Gitment</code>、<code class="highlighter-rouge">ISSO</code>以及<code class="highlighter-rouge">Valine</code>在网上会有很多人提供详细的教程，我就不赘述了。今天熊の猫将会为大家推荐2款比较小众的博客评论系统，如果有需求，可以试试看。</p>
+
+<h3 id="twikoo-comments">Twikoo-Comments</h3>
+
+<blockquote>
+  <p>官网地址：https://twikoo.js.org/</p>
+</blockquote>
+
+<p>这是一个基于腾讯云开发（CloudBase）而诞生的简洁、安全、无后端的静态网站评论系统。说实话，我看到这个评论系统，脑子里总会不自觉地联想到<code class="highlighter-rouge">Valine</code>，都是预计某一云端生态服务打造的评论系统，不过腾讯云的实力应该要比leancloud要强大吧。</p>
+
+<p>这个评论系统具有以下的特点：</p>
+<ul>
+  <li>成本上，腾讯云云开发环境可以<strong>免费搭建</strong>；</li>
+  <li>安全性上，使用腾讯云云函数开发接口，不开放一丁点数据库权限</li>
+  <li>易用性上，支持点赞、邮件通知、<strong>微信通知（限博主）</strong>……</li>
+</ul>
+
+<p>目前这个评论系统还不支持反垃圾评论，但据说接入Akismet 反垃圾检查的计划已经安排上了，所以有兴趣的朋友可以去试试。此系统适合动手能力比较强的同学。</p>
+
+<h3 id="remark-ninja">Remark Ninja</h3>
+<blockquote>
+  <p>官网地址：https://remark.ninja/</p>
+</blockquote>
+
+<p>这个是一个偶然机会，我访问前面提到的LeanCloud家的官方博客，发现他们家的官博正在用这款评论系统，界面十分简洁，可以二次美化。<code class="highlighter-rouge">Remark Ninja</code>翻译成中文的意思应该是<code class="highlighter-rouge">备注忍者</code>，类似于Disqus，无需部署，添加代码开箱即用。</p>
+
+<p>这个评论系统具有以下的特点：
+易于集成。只需要一行代码就可以使用
+注重数据隐私安全。可以在后台随时导出数据，首页上说，数据服务器位于欧盟区；</p>
+
+<p>使用方法：</p>
+
+<p>首先是安装<code class="highlighter-rouge">remark-ninja-react</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm i -S remark-ninja-react
+</code></pre></div></div>
+
+<p>然后再合适的位置添加评论代码</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import Comments from 'remark-ninja-react';
+// ...
+&lt;Comments siteId='your-site-id' threadSlug='unique-thread-slug' /&gt;;
+</code></pre></div></div>
+
+<p>以上就是我所整理的比较新的博客评论服务，希望可以帮助大家解决评论的难题。</p>
+
+	</div>
+	<div class="pagination">
+		
+		<div class="hidden">Y.cool - 歪酷博客</div><a href="/post/20201115.html" class="left arrow">◀️ 上一篇</a>
+		
+		
+		<a href="/post/20201111.html" class="right arrow">下一篇 ▶️</a><div class="hidden">Y.cool - 歪酷博客</div>
+		
+	</div>
+	<div class="pagination"></div>
+	<div id="tcomment"></div>
+</main>
+<script type="text/javascript" src="//cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js"></script>
+<script>twikoo.init({ envId: 'https://api.my.eu.org', el: '#tcomment' })</script>
+<script type="text/javascript" src="//cdn.staticfile.org/highlight.js/11.4.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" src="//cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initLineNumbersOnLoad();</script>
+
+    <footer>
+  <span>
+    <time>2022</time> © <a href="/" title="Y.cool">Y.cool</a> - <a href="https://icp.gov.moe/?keyword=20227788" target="_blank">萌ICP备20227788号</a> - <a href="/sitemap.xml" title="Sitemap">SITEMAP</a>　<a href="/feed.xml" title="RSS"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;width:1rem;height:1rem"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
+  </span>
+</footer>
+<script src="//cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+<script src="//cdn.staticfile.org/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
